@@ -4,7 +4,6 @@ D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\bin\Debug\netstandard2
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\bin\Debug\netstandard2.0\ToDo-List.pdb
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.csprojAssemblyReference.cache
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.AssemblyInfoInputs.cache
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.AssemblyInfo.cs
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.csproj.CoreCompileInputs.cache
@@ -12,3 +11,4 @@ D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.dll
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ref\ToDo-List.dll
 D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.pdb
+D:\Haha PP\GitHub\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
