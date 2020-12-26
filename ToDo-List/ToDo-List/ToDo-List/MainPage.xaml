@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDo_List.MainPage">
+
+    <StackLayout Margin="40">
+        <Label Text="Do zrobienia:"/>
+        <Entry x:Name="entry" Placeholder="Do zrobienia:"/>
+        <Button Text="Dodaj" Clicked="Button_Clicked"/>
+        <ListView x:Name="itemsList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Text}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
