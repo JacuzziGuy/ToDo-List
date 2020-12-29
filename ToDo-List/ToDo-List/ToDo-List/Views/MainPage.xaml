@@ -5,16 +5,26 @@
 
     <StackLayout Margin="40">
         <Label Text="Do zrobienia:"/>
-        <Entry x:Name="entry" Placeholder="Do zrobienia:"/>
+        <Entry x:Name="entry" Placeholder="Do zrobienia:" Keyboard="Text"/>
         <Button Text="Dodaj" Clicked="SubmitClicked"/>
-        <ListView x:Name="itemsList">
+        <ListView x:Name="itemsList" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <FlexLayout>
-                            <Label Text="{Binding Name}"/>
-                            <Button Text="Usuń" Clicked="DeleteClicked" CommandParameter="{Binding Id}"/>
-                            <Button Text="Gotowe"/>
+                        <FlexLayout AlignItems="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" Grid.Row="0" Margin="10"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="20" VerticalOptions="CenterAndExpand"/>
+                                <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked" CommandParameter="{Binding Id}" Margin="10"/>
+                            </Grid>
                         </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
