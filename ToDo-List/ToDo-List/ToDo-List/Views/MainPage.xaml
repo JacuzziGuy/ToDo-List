@@ -6,14 +6,16 @@
     <StackLayout Margin="40">
         <Label Text="Do zrobienia:"/>
         <Entry x:Name="entry" Placeholder="Do zrobienia:"/>
-        <Button Text="Dodaj" Clicked="Button_Clicked"/>
+        <Button Text="Dodaj" Clicked="SubmitClicked"/>
         <ListView x:Name="itemsList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
+                        <FlexLayout>
                             <Label Text="{Binding Name}"/>
-                        </StackLayout>
+                            <Button Text="Usuń" Clicked="DeleteClicked" CommandParameter="{Binding Id}"/>
+                            <Button Text="Gotowe"/>
+                        </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
