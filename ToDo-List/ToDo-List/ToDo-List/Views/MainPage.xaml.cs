@@ -3,15 +3,18 @@ using Xamarin.Forms;
 using ToDo_List.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SQLite;
 
 namespace ToDo_List.Views
 {
 	public partial class MainPage : ContentPage
 	{
+		SQLiteConnection db;
 		public ObservableCollection<ItemModel> Items { get; set; } = new ObservableCollection<ItemModel>();
 		public MainPage()
 		{
 			InitializeComponent();
+			InitDB();
 			Init();
 		}
 		private void Init()
@@ -21,7 +24,18 @@ namespace ToDo_List.Views
 			entry.Completed += Entry_Completed;
 			itemsList.ItemSelected += ItemsList_ItemSelected;
 		}
-
+		private void InitDB()
+		{
+			db = new SQLiteConnection($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/ToDoList.sqlite");
+			try
+			{
+				Items = new ObservableCollection<ItemModel>(db.Query<ItemModel>("SELECT * FROM ItemModel"));
+			}
+			catch
+			{
+				db.CreateTable<ItemModel>();
+			}
+		}
 		private void Entry_Completed(object sender, EventArgs e)
 		{
 			if(entry.Text != "")
@@ -42,8 +56,9 @@ namespace ToDo_List.Views
 		private void DeleteClicked(object sender, EventArgs e)
 		{
 			var button = (Button)sender;
-			ItemModel item = Items.FirstOrDefault(x => x.Id == (int)button.CommandParameter);
+			ItemModel item = Items.FirstOrDefault(x => x.Num == (int)button.CommandParameter);
 			Items.Remove(item);
+			db.Delete(item);
 		}
 		private void AddItem()
 		{
@@ -52,7 +67,9 @@ namespace ToDo_List.Views
 				DisplayAlert("UWAGA!", "Uzupełnij pole!", "OK");
 				return;
 			}
-			Items.Add(new ItemModel { Id = Items.Count, Name = entry.Text });
+			ItemModel newItem = new ItemModel { Name = entry.Text, Num = Items.Count};
+			Items.Add(newItem);
+			db.Insert(newItem);
 			entry.Text = "";
 		}
 	}
