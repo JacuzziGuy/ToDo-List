@@ -67,10 +67,17 @@ namespace ToDo_List.Views
 				DisplayAlert("UWAGA!", "Uzupełnij pole!", "OK");
 				return;
 			}
-			ItemModel newItem = new ItemModel { Name = entry.Text, Num = Items.Count};
+			ItemModel newItem = new ItemModel { Name = entry.Text, Num = Items.Count, Checked = false };
 			Items.Add(newItem);
 			db.Insert(newItem);
 			entry.Text = "";
+		}
+
+		private void CheckedChanged(object sender, CheckedChangedEventArgs e)
+		{
+			var cb =  sender as CheckBox;
+			var item = cb.BindingContext as ItemModel;
+			item.Checked = !item.Checked;
 		}
 	}
 }

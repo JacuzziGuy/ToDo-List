@@ -8,5 +8,6 @@ namespace ToDo_List.Models
 		public int Id { get; set; }
 		public int Num { get; set; }
 		public string Name { get; set; }
+		public bool Checked { get; set; }
 	}
 }

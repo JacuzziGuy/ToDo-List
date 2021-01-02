@@ -21,7 +21,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" Grid.Row="0" Margin="10"/>
+                                <CheckBox BindingContext="{Binding .}" Grid.Column="0" Grid.Row="0" Margin="10" CheckedChanged="CheckedChanged" IsChecked="{Binding Checked}"/>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="20" VerticalOptions="CenterAndExpand"/>
                                 <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked" CommandParameter="{Binding Num}" Margin="10"/>
                             </Grid>
