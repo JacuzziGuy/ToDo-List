@@ -77,7 +77,8 @@ namespace ToDo_List.Views
 		{
 			var cb =  sender as CheckBox;
 			var item = cb.BindingContext as ItemModel;
-			item.Checked = !item.Checked;
+			item.Checked = cb.IsChecked;
+			db.Update(item);
 		}
 	}
 }
