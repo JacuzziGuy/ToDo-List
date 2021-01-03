@@ -4,20 +4,29 @@ using ToDo_List.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
 using SQLite;
+using ToDo_List.DB;
 
 namespace ToDo_List.Views
 {
 	public partial class MainPage : ContentPage
 	{
-		SQLiteConnection db;
-		public ObservableCollection<ItemModel> Items { get; set; } = new ObservableCollection<ItemModel>();
+		#region Variables
+
+		SQLiteConnection db = Constants.DataBasePath();
+		public ObservableCollection<ItemModel> Items = new ObservableCollection<ItemModel>();
+		
+		#endregion
 		public MainPage()
 		{
 			InitializeComponent();
 			InitDB();
-			Init();
+			InitList();
+			InitPage(); 
 		}
-		private void Init()
+		private void InitPage()
+		{
+		}
+		private void InitList()
 		{
 			entry.Text = "";
 			itemsList.ItemsSource = Items;
@@ -26,7 +35,6 @@ namespace ToDo_List.Views
 		}
 		private void InitDB()
 		{
-			db = new SQLiteConnection($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/ToDoList.sqlite");
 			try
 			{
 				Items = new ObservableCollection<ItemModel>(db.Query<ItemModel>("SELECT * FROM ItemModel"));
@@ -44,7 +52,6 @@ namespace ToDo_List.Views
 				entry.Focus();
 			}
 		}
-
 		private void ItemsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			itemsList.SelectedItem = null;
@@ -55,7 +62,7 @@ namespace ToDo_List.Views
 		}
 		private void DeleteClicked(object sender, EventArgs e)
 		{
-			var button = (Button)sender;
+			Button button = (Button)sender;
 			ItemModel item = Items.FirstOrDefault(x => x.Num == (int)button.CommandParameter);
 			Items.Remove(item);
 			db.Delete(item);
@@ -72,11 +79,10 @@ namespace ToDo_List.Views
 			db.Insert(newItem);
 			entry.Text = "";
 		}
-
 		private void CheckedChanged(object sender, CheckedChangedEventArgs e)
 		{
-			var cb =  sender as CheckBox;
-			var item = cb.BindingContext as ItemModel;
+			CheckBox cb =  sender as CheckBox;
+			ItemModel item = cb.BindingContext as ItemModel;
 			item.Checked = cb.IsChecked;
 			db.Update(item);
 		}
