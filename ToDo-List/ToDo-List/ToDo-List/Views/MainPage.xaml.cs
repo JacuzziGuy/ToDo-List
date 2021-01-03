@@ -25,6 +25,7 @@ namespace ToDo_List.Views
 		}
 		private void InitPage()
 		{
+			BackgroundColor = Color.LemonChiffon;
 		}
 		private void InitList()
 		{
