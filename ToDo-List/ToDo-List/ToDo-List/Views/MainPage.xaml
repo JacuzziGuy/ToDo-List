@@ -27,7 +27,7 @@
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}"
                                        FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#0244a1"/>
                                 <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked"
-                                        CommandParameter="{Binding Num}" CornerRadius="10" Margin="10,20,0,20"
+                                        BindingContext="{Binding .}" CornerRadius="10" Margin="10,20,0,20"
                                         BackgroundColor="IndianRed"/>
                             </Grid>
                         </FlexLayout>

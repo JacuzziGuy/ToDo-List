@@ -63,8 +63,7 @@ namespace ToDo_List.Views
 		}
 		private void DeleteClicked(object sender, EventArgs e)
 		{
-			Button button = (Button)sender;
-			ItemModel item = Items.FirstOrDefault(x => x.Num == (int)button.CommandParameter);
+			ItemModel item = (sender as Button).BindingContext as ItemModel;
 			Items.Remove(item);
 			db.Delete(item);
 		}
@@ -75,7 +74,7 @@ namespace ToDo_List.Views
 				DisplayAlert("UWAGA!", "Uzupełnij pole!", "OK");
 				return;
 			}
-			ItemModel newItem = new ItemModel { Name = entry.Text, Num = Items.Count, Checked = false };
+			ItemModel newItem = new ItemModel { Name = entry.Text, Checked = false };
 			Items.Add(newItem);
 			db.Insert(newItem);
 			entry.Text = "";
