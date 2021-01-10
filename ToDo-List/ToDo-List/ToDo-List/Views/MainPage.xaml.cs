@@ -21,18 +21,13 @@ namespace ToDo_List.Views
 			InitializeComponent();
 			InitDB();
 			InitList();
-			InitPage(); 
-		}
-		private void InitPage()
-		{
-			BackgroundColor = Color.LemonChiffon;
 		}
 		private void InitList()
 		{
 			entry.Text = "";
 			itemsList.ItemsSource = Items;
 			entry.Completed += Entry_Completed;
-			itemsList.ItemSelected += ItemsList_ItemSelected;
+			itemsList.ItemTapped += ItemTapped;
 		}
 		private void InitDB()
 		{
@@ -53,7 +48,7 @@ namespace ToDo_List.Views
 				entry.Focus();
 			}
 		}
-		private void ItemsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+		private void ItemTapped(object sender, EventArgs e)
 		{
 			itemsList.SelectedItem = null;
 		}

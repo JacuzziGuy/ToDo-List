@@ -4,10 +4,17 @@
              x:Class="ToDo_List.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">Khaki</Color>
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarBackgroundColor" Value="Khaki" />
                 <Setter Property="BarTextColor" Value="#0244a1" />
+                <Setter Property="BackgroundColor" Value="LemonChiffon"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#0244a1"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="#0244a1"/>
+                <Setter Property="PlaceholderColor" Value="#0763e5"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

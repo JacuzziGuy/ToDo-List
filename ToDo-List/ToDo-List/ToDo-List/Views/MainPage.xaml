@@ -5,32 +5,30 @@
              Title="Do zrobienia">
 
     <StackLayout Margin="40">
-        <Label Text="Dodaj nowe zadanie:" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10" TextColor="#0244a1"/>
-        <Entry x:Name="entry" Placeholder="Kliknij..." Keyboard="Text" Margin="0,0,0,10" TextColor="#0244a1" PlaceholderColor="#0763e5"/>
+        <Label Text="Dodaj nowe zadanie:" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
+        <Entry x:Name="entry" Placeholder="Kliknij..." Keyboard="Text" Margin="0,0,0,10"/>
         <Button Text="Dodaj" Clicked="SubmitClicked" FontAttributes="Bold" Padding="20" CornerRadius="15" BackgroundColor="OliveDrab"/>
         <ListView x:Name="itemsList" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <FlexLayout AlignItems="Center">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox IsChecked="{Binding Checked}" BindingContext="{Binding .}" Grid.Column="0" Grid.Row="0"
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox IsChecked="{Binding Checked}" BindingContext="{Binding .}" Grid.Column="0" Grid.Row="0"
                                           Margin="10" CheckedChanged="CheckedChanged"/>
-                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}"
-                                       FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#0244a1"/>
-                                <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked"
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}"
+                                       FontSize="20" VerticalOptions="CenterAndExpand"/>
+                            <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked"
                                         BindingContext="{Binding .}" CornerRadius="10" Margin="10,20,0,20"
-                                        BackgroundColor="IndianRed"/>
-                            </Grid>
-                        </FlexLayout>
+                                        BackgroundColor="IndianRed" VerticalOptions="Center"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
