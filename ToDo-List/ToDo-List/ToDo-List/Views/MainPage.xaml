@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ToDo_List.Views.MainPage"
-             Title="Do zrobienia">
+             Title="Do zrobienia:">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="plus.png" Clicked="AddClicked"/>
     </ContentPage.ToolbarItems>
@@ -22,11 +22,11 @@
                             </Grid.ColumnDefinitions>
                             <CheckBox IsChecked="{Binding Checked}" BindingContext="{Binding .}" Grid.Column="0" Grid.Row="0" 
                                       Margin="10" CheckedChanged="CheckedChanged"/>
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="20" 
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="Large" 
                                    VerticalOptions="CenterAndExpand"/>
-                            <Button Grid.Column="2" Grid.Row="0" Text="Usuń" Clicked="DeleteClicked" 
-                                    BindingContext="{Binding .}" CornerRadius="10" Margin="10,20,0,20" 
-                                    BackgroundColor="IndianRed" VerticalOptions="Center"/>
+                            <ImageButton Grid.Column="2" Grid.Row="0" Clicked="DeleteClicked" Source="cancel.png"
+                                    BindingContext="{Binding .}" CornerRadius="10" Margin="10,20,0,20"
+                                    HeightRequest="40" VerticalOptions="Center" BackgroundColor="LemonChiffon"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

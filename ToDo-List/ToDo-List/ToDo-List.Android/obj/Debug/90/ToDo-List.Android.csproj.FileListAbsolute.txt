@@ -1003,3 +1003,4 @@ D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\android\src\crc643dd37f507f3d9710\PopupPageRenderer.java
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\android\src\crc64fdbeeba101bd56dc\RgGestureDetectorListener.java
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\plus.png
+D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\cancel.png

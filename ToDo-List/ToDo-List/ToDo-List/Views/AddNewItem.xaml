@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              x:Class="ToDo_List.Views.AddNewItem">
-    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20" 
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20" 
                  BackgroundColor="LemonChiffon">
-        <Label Text="Dodaj nowe zadanie" BackgroundColor="Khaki" Padding="20,5,20,5"/>
-        <Entry x:Name="input" Margin="20,5,20,10" Placeholder="Nowe zadanie..."/>
-        <FlexLayout>
+        <Label Text="Dodaj nowe zadanie" BackgroundColor="Khaki" Padding="20,10,20,10" FontSize="Large" FontAttributes="Bold"/>
+        <Entry x:Name="input" Margin="20,0,20,10" Placeholder="Nowe zadanie..." Keyboard="Chat"/>
+        <FlexLayout JustifyContent="Center">
             <Button Text="Anuluj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"
                     CornerRadius="100" Clicked="CancelClicked"/>
             <Button Text="Dodaj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"

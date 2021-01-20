@@ -18,7 +18,30 @@ namespace ToDo_List.Views
         {
             Items = items;
             InitializeComponent();
+            InitXaml();
         }
+        private void InitXaml()
+        {
+            input.Completed += Input_Completed;
+            input.Text = "";
+        }
+
+        private void Input_Completed(object sender, EventArgs e)
+        {
+            if (input.Text != null && input.Text != "")
+            {
+                var item = new ItemModel { Text = input.Text, Checked = false };
+                Items.Add(item);
+                db.Insert(item);
+            }
+            else
+            {
+                DisplayAlert("UWAGA!", "Pole nie może być puste", "OK");
+            }
+            input.Text = "";
+            input.Focus();
+        }
+
         private void CancelClicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PopAsync();

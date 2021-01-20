@@ -50,7 +50,7 @@ namespace ToDo_List.Views
 		}
 		private void DeleteClicked(object sender, EventArgs e)
 		{
-			ItemModel item = (sender as Button).BindingContext as ItemModel;
+			ItemModel item = (sender as ImageButton).BindingContext as ItemModel;
 			Items.Remove(item);
 			db.Delete(item);
 		}
