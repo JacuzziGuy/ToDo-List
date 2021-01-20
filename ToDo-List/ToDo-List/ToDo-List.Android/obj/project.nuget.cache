@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2CivJvfQMAfX44xty4Ax+62tFFGcmK813Uli3SUa7fPoD+uTfx6TP2Y3GLpmGvxqgEtSmUaDO7T6538zZpg7IA==",
+  "dgSpecHash": "+lj13ztkhwP6aVKEF81DXz00KVMY/IkZRRWBcJVnm2GECySEn0MisLVhGg41VTCD+Lg2oiKsfAMmZdwRuEgbpQ==",
   "success": true,
-  "projectFilePath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+  "projectFilePath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\thepa\\.nuget\\packages\\rg.plugins.popup\\2.0.0.10\\rg.plugins.popup.2.0.0.10.nupkg.sha512",
     "C:\\Users\\thepa\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\thepa\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\thepa\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",

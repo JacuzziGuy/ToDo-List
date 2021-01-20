@@ -9,6 +9,9 @@
                 <Setter Property="BarTextColor" Value="#0244a1" />
                 <Setter Property="BackgroundColor" Value="LemonChiffon"/>
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="#0244a1"/>
             </Style>

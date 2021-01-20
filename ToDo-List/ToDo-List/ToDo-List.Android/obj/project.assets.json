@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v9.0": {
+      "Rg.Plugins.Popup/2.0.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.5.0.657"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -881,6 +896,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Rg.Plugins.Popup": "2.0.0.10",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1451",
           "sqlite-net-pcl": "1.7.335"
@@ -895,6 +911,54 @@
     }
   },
   "libraries": {
+    "Rg.Plugins.Popup/2.0.0.10": {
+      "sha512": "zsAM5InbgG41MqAuGIRiox7+oDMVWTcKLpO39UCRQjZQEblkDsjIvxBIBALWHCBP6F/xf9CrPlyXOzQQGYVcEA==",
+      "type": "package",
+      "path": "rg.plugins.popup/2.0.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "icon.png",
+        "lib/monoandroid10.0/Rg.Plugins.Popup.dll",
+        "lib/monoandroid10.0/Rg.Plugins.Popup.pdb",
+        "lib/monoandroid10.0/Rg.Plugins.Popup.xml",
+        "lib/monoandroid90/Rg.Plugins.Popup.dll",
+        "lib/monoandroid90/Rg.Plugins.Popup.pdb",
+        "lib/monoandroid90/Rg.Plugins.Popup.xml",
+        "lib/net472/Rg.Plugins.Popup.dll",
+        "lib/net472/Rg.Plugins.Popup.pdb",
+        "lib/net472/Rg.Plugins.Popup.xml",
+        "lib/netcoreapp3.1/Rg.Plugins.Popup.dll",
+        "lib/netcoreapp3.1/Rg.Plugins.Popup.pdb",
+        "lib/netcoreapp3.1/Rg.Plugins.Popup.xml",
+        "lib/netstandard2.0/Rg.Plugins.Popup.dll",
+        "lib/netstandard2.0/Rg.Plugins.Popup.pdb",
+        "lib/netstandard2.0/Rg.Plugins.Popup.xml",
+        "lib/tizen80/Rg.Plugins.Popup.dll",
+        "lib/tizen80/Rg.Plugins.Popup.pdb",
+        "lib/tizen80/Rg.Plugins.Popup.xml",
+        "lib/uap10.0.17763/Rg.Plugins.Popup.dll",
+        "lib/uap10.0.17763/Rg.Plugins.Popup.pdb",
+        "lib/uap10.0.17763/Rg.Plugins.Popup.pri",
+        "lib/uap10.0.17763/Rg.Plugins.Popup.xml",
+        "lib/xamarinios10/Rg.Plugins.Popup.dll",
+        "lib/xamarinios10/Rg.Plugins.Popup.pdb",
+        "lib/xamarinios10/Rg.Plugins.Popup.xml",
+        "lib/xamarinmac20/Rg.Plugins.Popup.dll",
+        "lib/xamarinmac20/Rg.Plugins.Popup.pdb",
+        "lib/xamarinmac20/Rg.Plugins.Popup.xml",
+        "lib/xamarintvos10/Rg.Plugins.Popup.dll",
+        "lib/xamarintvos10/Rg.Plugins.Popup.pdb",
+        "lib/xamarintvos10/Rg.Plugins.Popup.xml",
+        "lib/xamarinwatchos10/Rg.Plugins.Popup.dll",
+        "lib/xamarinwatchos10/Rg.Plugins.Popup.pdb",
+        "lib/xamarinwatchos10/Rg.Plugins.Popup.xml",
+        "readme.txt",
+        "rg.plugins.popup.2.0.0.10.nupkg.sha512",
+        "rg.plugins.popup.nuspec"
+      ]
+    },
     "sqlite-net-pcl/1.7.335": {
       "sha512": "0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
       "type": "package",
@@ -2161,6 +2225,7 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v9.0": [
+      "Rg.Plugins.Popup >= 2.0.0.10",
       "ToDo-List >= 1.0.0",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.8.0.1451"
@@ -2173,11 +2238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+      "projectUniqueName": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
       "projectName": "ToDo-List.Android",
-      "projectPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+      "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
       "packagesPath": "C:\\Users\\thepa\\.nuget\\packages\\",
-      "outputPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
+      "outputPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2198,8 +2263,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
-              "projectPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
+            "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
+              "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
             }
           }
         }
@@ -2208,6 +2273,10 @@
     "frameworks": {
       "monoandroid90": {
         "dependencies": {
+          "Rg.Plugins.Popup": {
+            "target": "Package",
+            "version": "[2.0.0.10, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"

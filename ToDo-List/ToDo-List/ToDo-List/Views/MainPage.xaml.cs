@@ -2,9 +2,9 @@
 using Xamarin.Forms;
 using ToDo_List.Models;
 using System.Collections.ObjectModel;
-using System.Linq;
 using SQLite;
 using ToDo_List.DB;
+using Rg.Plugins.Popup.Services;
 
 namespace ToDo_List.Views
 {
@@ -24,9 +24,7 @@ namespace ToDo_List.Views
 		}
 		private void InitList()
 		{
-			entry.Text = "";
 			itemsList.ItemsSource = Items;
-			entry.Completed += Entry_Completed;
 			itemsList.ItemTapped += ItemTapped;
 		}
 		private void InitDB()
@@ -40,39 +38,21 @@ namespace ToDo_List.Views
 				db.CreateTable<ItemModel>();
 			}
 		}
-		private void Entry_Completed(object sender, EventArgs e)
+		private void ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			if(entry.Text != "")
-			{
-				AddItem();
-				entry.Focus();
-			}
-		}
-		private void ItemTapped(object sender, EventArgs e)
-		{
+			ItemModel item = e.Item as ItemModel;
+			PopupNavigation.Instance.PushAsync(new Popup(item.Title, item.Text));
 			itemsList.SelectedItem = null;
 		}
-		private void SubmitClicked(object sender, EventArgs e)
+		private void AddClicked(object sender, EventArgs e)
 		{
-			AddItem();
+			PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
 		}
 		private void DeleteClicked(object sender, EventArgs e)
 		{
 			ItemModel item = (sender as Button).BindingContext as ItemModel;
 			Items.Remove(item);
 			db.Delete(item);
-		}
-		private void AddItem()
-		{
-			if (entry.Text == "")
-			{
-				DisplayAlert("UWAGA!", "Uzupełnij pole!", "OK");
-				return;
-			}
-			ItemModel newItem = new ItemModel { Name = entry.Text, Checked = false };
-			Items.Add(newItem);
-			db.Insert(newItem);
-			entry.Text = "";
 		}
 		private void CheckedChanged(object sender, CheckedChangedEventArgs e)
 		{
@@ -81,5 +61,5 @@ namespace ToDo_List.Views
 			item.Checked = cb.IsChecked;
 			db.Update(item);
 		}
-	}
+    }
 }

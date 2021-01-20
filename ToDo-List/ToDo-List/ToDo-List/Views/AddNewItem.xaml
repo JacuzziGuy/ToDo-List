@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="ToDo_List.Views.AddNewItem">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20" 
+                 BackgroundColor="LemonChiffon">
+        <Label Text="Dodaj nowe zadanie" BackgroundColor="Khaki" Padding="20,5,20,5"/>
+        <Entry x:Name="input" Margin="20,5,20,10" Placeholder="Nowe zadanie..."/>
+        <FlexLayout>
+            <Button Text="Anuluj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"
+                    CornerRadius="100" Clicked="CancelClicked"/>
+            <Button Text="Dodaj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"
+                    CornerRadius="100" Clicked="AddClicked"/>
+        </FlexLayout>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="ToDo_List.Views.Popup">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="LemonChiffon" 
+                 Margin="20">
+        <Label x:Name="title" BackgroundColor="Khaki" Padding="20,5,20,5" FontSize="Large" FontAttributes="Bold"
+               MinimumWidthRequest="200"/>
+        <Label x:Name="text" Padding="20,0,20,20" FontSize="Medium"/>
+        <Button Text="OK" Clicked="Button_Clicked" BackgroundColor="LemonChiffon" TextColor="#0244a1" 
+                VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" CornerRadius="100"/>
+    </StackLayout>
+</pages:PopupPage>

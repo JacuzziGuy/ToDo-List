@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj": {}
+    "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj": {}
   },
   "projects": {
-    "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj": {
+    "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+        "projectUniqueName": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
         "projectName": "ToDo-List.Android",
-        "projectPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+        "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
         "packagesPath": "C:\\Users\\thepa\\.nuget\\packages\\",
-        "outputPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
+        "outputPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
-                "projectPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
+              "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
+                "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
               }
             }
           }
@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.0.0.10, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
@@ -54,14 +58,14 @@
         }
       }
     },
-    "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
+    "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
+        "projectUniqueName": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
         "projectName": "ToDo-List",
-        "projectPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
+        "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
         "packagesPath": "C:\\Users\\thepa\\.nuget\\packages\\",
-        "outputPath": "D:\\Haha PP\\GitHub\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\obj\\",
+        "outputPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -100,6 +104,10 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.0.0.10, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
@@ -123,7 +131,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
