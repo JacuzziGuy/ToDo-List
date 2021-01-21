@@ -2232,24 +2232,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thepa\\.nuget\\packages\\": {},
+    "C:\\Users\\Jacek\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+      "projectUniqueName": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
       "projectName": "ToDo-List.Android",
-      "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
-      "packagesPath": "C:\\Users\\thepa\\.nuget\\packages\\",
-      "outputPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
+      "projectPath": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\ToDo-List.Android.csproj",
+      "packagesPath": "C:\\Users\\Jacek\\.nuget\\packages\\",
+      "outputPath": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\thepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jacek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2263,8 +2263,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
-              "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
+            "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj": {
+              "projectPath": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj"
             }
           }
         }
