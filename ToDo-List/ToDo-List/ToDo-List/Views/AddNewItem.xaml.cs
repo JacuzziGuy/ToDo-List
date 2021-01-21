@@ -35,11 +35,7 @@ namespace ToDo_List.Views
                 db.Insert(item);
                 input.Text = "";
                 input.Focus();
-<<<<<<< HEAD
             }        
-=======
-            }
->>>>>>> 9f09e2c7aee0da67627c998f42094d69558435a6
         }
 
         private void CancelClicked(object sender, EventArgs e)
