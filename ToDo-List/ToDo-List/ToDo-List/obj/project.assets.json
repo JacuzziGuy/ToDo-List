@@ -992,23 +992,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thepa\\.nuget\\packages\\": {},
+    "C:\\Users\\Jacek\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
+      "projectUniqueName": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
       "projectName": "ToDo-List",
-      "projectPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
-      "packagesPath": "C:\\Users\\thepa\\.nuget\\packages\\",
-      "outputPath": "D:\\Programowanie\\Github\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\obj\\",
+      "projectPath": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List.csproj",
+      "packagesPath": "C:\\Users\\Jacek\\.nuget\\packages\\",
+      "outputPath": "D:\\Programowanie\\GitHub\\Xamarin\\ToDo-List\\ToDo-List\\ToDo-List\\ToDo-List\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\thepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jacek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

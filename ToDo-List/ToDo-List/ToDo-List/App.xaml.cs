@@ -7,6 +7,7 @@ namespace ToDo_List
 	{
 		public App()
 		{
+			App.Current.UserAppTheme = OSAppTheme.Light;
 			InitializeComponent();
 			MainPage = new NavigationPage(new MainPage());
 		}

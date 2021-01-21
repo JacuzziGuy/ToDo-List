@@ -33,13 +33,13 @@ namespace ToDo_List.Views
                 var item = new ItemModel { Text = input.Text, Checked = false };
                 Items.Add(item);
                 db.Insert(item);
+                input.Text = "";
+                input.Focus();
             }
             else
             {
                 DisplayAlert("UWAGA!", "Pole nie może być puste", "OK");
             }
-            input.Text = "";
-            input.Focus();
         }
 
         private void CancelClicked(object sender, EventArgs e)
