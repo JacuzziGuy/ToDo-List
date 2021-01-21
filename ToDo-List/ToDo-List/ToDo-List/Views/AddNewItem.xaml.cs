@@ -36,10 +36,6 @@ namespace ToDo_List.Views
                 input.Text = "";
                 input.Focus();
             }
-            else
-            {
-                DisplayAlert("UWAGA!", "Pole nie może być puste", "OK");
-            }
         }
 
         private void CancelClicked(object sender, EventArgs e)
@@ -63,6 +59,11 @@ namespace ToDo_List.Views
         protected override bool OnBackgroundClicked()
         {
             return false;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            input.Focus();
         }
     }
 }
