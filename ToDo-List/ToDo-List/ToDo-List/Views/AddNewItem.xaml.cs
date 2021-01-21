@@ -33,13 +33,9 @@ namespace ToDo_List.Views
                 var item = new ItemModel { Text = input.Text, Checked = false };
                 Items.Add(item);
                 db.Insert(item);
-            }
-            else
-            {
-                DisplayAlert("UWAGA!", "Pole nie może być puste", "OK");
-            }
-            input.Text = "";
-            input.Focus();
+                input.Text = "";
+                input.Focus();
+            }        
         }
 
         private void CancelClicked(object sender, EventArgs e)
@@ -63,6 +59,11 @@ namespace ToDo_List.Views
         protected override bool OnBackgroundClicked()
         {
             return false;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            input.Focus();
         }
     }
 }
