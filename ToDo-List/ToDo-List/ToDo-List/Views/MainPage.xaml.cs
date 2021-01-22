@@ -14,6 +14,7 @@ namespace ToDo_List.Views
 
         SQLiteConnection db = Constants.DataBasePath();
         public ObservableCollection<ItemModel> Items = new ObservableCollection<ItemModel>();
+        ItemModel selectedItem = new ItemModel();
 
         #endregion
 
@@ -45,6 +46,23 @@ namespace ToDo_List.Views
         private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ItemModel item = e.Item as ItemModel;
+            if(selectedItem == item)
+            {
+                ToolbarItems.RemoveAt(0);
+                selectedItem = null;
+            }
+            else if(ToolbarItems.Count == 0)
+            {
+                ToolbarItem btn = new ToolbarItem();
+                btn.Text = "Usuń";
+                btn.Clicked += DeleteClicked;
+                ToolbarItems.Add(btn);
+                selectedItem = item;
+            }
+            else
+            {
+                selectedItem = item;
+            }
             itemsList.SelectedItem = null;
         }
 
@@ -55,9 +73,9 @@ namespace ToDo_List.Views
 
         private void DeleteClicked(object sender, EventArgs e)
         {
-            ItemModel item = (sender as ImageButton).BindingContext as ItemModel;
-            Items.Remove(item);
-            db.Delete(item);
+            Items.Remove(selectedItem);
+            db.Delete(selectedItem);
+            ToolbarItems.RemoveAt(0);
         }
 
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
