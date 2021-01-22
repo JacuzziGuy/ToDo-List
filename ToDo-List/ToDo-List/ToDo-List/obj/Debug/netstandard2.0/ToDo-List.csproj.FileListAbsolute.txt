@@ -26,5 +26,4 @@ D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debu
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.dll
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ref\ToDo-List.dll
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\ToDo-List.pdb
-D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\Views\Popup.xaml.g.cs
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List\obj\Debug\netstandard2.0\Views\AddNewItem.xaml.g.cs

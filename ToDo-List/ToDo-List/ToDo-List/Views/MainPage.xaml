@@ -25,21 +25,20 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <CheckBox IsChecked="{Binding Checked}" BindingContext="{Binding .}" Grid.Column="0" Grid.Row="0" 
-                                      Margin="10" CheckedChanged="CheckedChanged"/>
-                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Text}" FontSize="Large" 
-                                   VerticalOptions="CenterAndExpand"/>
+                                      Margin="10" CheckedChanged="CheckedChanged" VerticalOptions="StartAndExpand"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Text}" VerticalOptions="StartAndExpand" Margin="0,13,0,10"
+                                       FontSize="Medium"/>
                                 <ImageButton Grid.Column="2" Grid.Row="0" Clicked="DeleteClicked" Source="cancel.png"
-                                    BindingContext="{Binding .}" CornerRadius="40" Margin="10,20,0,20"
-                                    HeightRequest="40" VerticalOptions="Center" BackgroundColor="LemonChiffon"/>
+                                    BindingContext="{Binding .}" CornerRadius="40" Margin="10,0,10,0"
+                                    HeightRequest="40" VerticalOptions="Center" BackgroundColor="Transparent"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <ImageButton x:Name="addButton" Grid.Row="0" Clicked="AddClicked" Source="plus.png" HeightRequest="80" 
-                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="80" 
-                     BackgroundColor="LemonChiffon" Margin="20"/>
+        <ImageButton x:Name="addButton" Grid.Row="0" Clicked="AddClicked" Source="plus.png" HeightRequest="60" 
+                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" />
     </Grid>
 
 </ContentPage>

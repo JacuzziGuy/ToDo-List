@@ -5,19 +5,19 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="Khaki" />
-                <Setter Property="BarTextColor" Value="#0244a1" />
-                <Setter Property="BackgroundColor" Value="LemonChiffon"/>
+                <Setter Property="BarBackgroundColor" Value="#FB4D3D" />
+                <Setter Property="BarTextColor" Value="#FDFFFC" />
+                <Setter Property="BackgroundColor" Value="#FDFFFC"/>
             </Style>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="#FB4D3D"/>
             </Style>
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="#0244a1"/>
+                <Setter Property="TextColor" Value="#345995"/>
             </Style>
             <Style TargetType="Entry">
-                <Setter Property="TextColor" Value="#0244a1"/>
-                <Setter Property="PlaceholderColor" Value="#0763e5"/>
+                <Setter Property="TextColor" Value="#345995"/>
+                <Setter Property="PlaceholderColor" Value="#345995"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

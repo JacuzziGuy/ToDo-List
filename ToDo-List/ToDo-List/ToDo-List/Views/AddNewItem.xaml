@@ -4,14 +4,15 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              x:Class="ToDo_List.Views.AddNewItem">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20" 
-                 BackgroundColor="LemonChiffon">
-        <Label Text="Dodaj nowe zadanie" BackgroundColor="Khaki" Padding="20,10,20,10" FontSize="Large" FontAttributes="Bold"/>
+                 BackgroundColor="#FDFFFC">
+        <Label Text="Dodaj nowe zadanie" BackgroundColor="#FB4D3D" Padding="20,10,20,10" 
+               FontSize="Large" FontAttributes="Bold" TextColor="#FDFFFC"/>
         <Entry x:Name="input" Margin="20,0,20,10" Placeholder="Nowe zadanie..." Keyboard="Chat"/>
         <FlexLayout JustifyContent="Center">
-            <Button Text="Anuluj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"
-                    CornerRadius="100" Clicked="CancelClicked"/>
-            <Button Text="Dodaj" BackgroundColor="LemonChiffon" TextColor="#0244a1" HorizontalOptions="CenterAndExpand"
-                    CornerRadius="100" Clicked="AddClicked"/>
+            <Button Text="Anuluj" BackgroundColor="Transparent" TextColor="#FB4D3D" 
+                    HorizontalOptions="CenterAndExpand" Clicked="CancelClicked"/>
+            <Button Text="Dodaj" BackgroundColor="Transparent" TextColor="#FB4D3D" 
+                    HorizontalOptions="CenterAndExpand" Clicked="AddClicked"/>
         </FlexLayout>
     </StackLayout>
 </pages:PopupPage>

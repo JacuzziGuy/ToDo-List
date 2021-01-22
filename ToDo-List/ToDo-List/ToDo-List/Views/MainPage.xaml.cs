@@ -45,7 +45,6 @@ namespace ToDo_List.Views
         private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ItemModel item = e.Item as ItemModel;
-            PopupNavigation.Instance.PushAsync(new Popup(item.Title, item.Text));
             itemsList.SelectedItem = null;
         }
 
