@@ -4,9 +4,7 @@
              x:Class="ToDo_List.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="#FB4D3D" />
-                <Setter Property="BarTextColor" Value="#FDFFFC" />
+            <Style TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#FDFFFC"/>
             </Style>
             <Style TargetType="Button">

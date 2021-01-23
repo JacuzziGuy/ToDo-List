@@ -29,6 +29,7 @@ namespace ToDo_List.Views
         {
             itemsList.ItemsSource = Items;
             itemsList.ItemTapped += ItemTapped;
+            deleteButton.TranslateTo(0, 200, 0);
         }
 
         private void InitDB()
@@ -43,27 +44,32 @@ namespace ToDo_List.Views
             }
         }
 
-        private void ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ItemModel item = e.Item as ItemModel;
-            if(selectedItem == item)
+            itemsList.SelectedItem = null;
+            if (selectedItem == item)
             {
-                ToolbarItems.RemoveAt(0);
+                title.Text = "Do zrobienia:";
                 selectedItem = null;
-            }
-            else if(ToolbarItems.Count == 0)
-            {
-                ToolbarItem btn = new ToolbarItem();
-                btn.Text = "Usuń";
-                btn.Clicked += DeleteClicked;
-                ToolbarItems.Add(btn);
-                selectedItem = item;
+                await deleteButton.TranslateTo(0, 200, 400);
             }
             else
             {
                 selectedItem = item;
+                if (selectedItem.Text.Length >= 20)
+                {
+                    title.Text = "";
+                    for(int i =0; i < 20; i++)
+                    {
+                        title.Text += selectedItem.Text[i];
+                    }
+                    title.Text += "...";
+                }
+                else
+                    title.Text = selectedItem.Text;
+                await deleteButton.TranslateTo(0, 0, 200);
             }
-            itemsList.SelectedItem = null;
         }
 
         private void AddClicked(object sender, EventArgs e)
@@ -71,11 +77,12 @@ namespace ToDo_List.Views
             PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
         }
 
-        private void DeleteClicked(object sender, EventArgs e)
+        private async void DeleteClicked(object sender, EventArgs e)
         {
             Items.Remove(selectedItem);
             db.Delete(selectedItem);
-            ToolbarItems.RemoveAt(0);
+            title.Text = "Do zrobienia:";
+            await deleteButton.TranslateTo(0, 200, 400);
         }
 
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
