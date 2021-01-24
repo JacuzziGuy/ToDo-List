@@ -4,7 +4,7 @@
 	<style name="MainTheme" parent="MainTheme.Base">
 		<item name="colorPrimary">#FB4D3D</item>
 		<item name="colorPrimaryDark">#FB4D3D</item>
-		<item name="colorAccent">#FB4D3D</item>
+		<item name="colorAccent">#FDFFFC</item>
 	</style>
 	
 </resources>

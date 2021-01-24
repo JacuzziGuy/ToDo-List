@@ -8,6 +8,15 @@
         <Label Text="Dodaj nowe zadanie" BackgroundColor="#FB4D3D" Padding="20,10,20,10" 
                FontSize="Large" FontAttributes="Bold" TextColor="#FDFFFC"/>
         <Entry x:Name="input" Margin="20,0,20,10" Placeholder="Nowe zadanie..." Keyboard="Chat"/>
+        <Label Text="Priorytet:" Margin="20,0,20,0"/>
+        <FlexLayout JustifyContent="SpaceAround">
+            <Button x:Name="btn1" Text="1" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#eb3434" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderWidth="2" BorderColor="Black"/>
+            <Button x:Name="btn2" Text="2" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#eb7834" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderColor="Black"/>
+            <Button x:Name="btn3" Text="3" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#ebc834" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderColor="Black"/>
+            <Button x:Name="btn4" Text="4" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#c3eb34" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderColor="Black"/>
+            <Button x:Name="btn5" Text="5" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#6beb34" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderColor="Black"/>
+            <Button x:Name="btn6" Text="6" WidthRequest="40" HeightRequest="40" CornerRadius="50" BackgroundColor="#b5b5b5" Clicked="ImportanceClicked" TextColor="#FDFFFC" BorderColor="Black"/>
+        </FlexLayout>
         <FlexLayout JustifyContent="Center">
             <Button Text="Anuluj" BackgroundColor="Transparent" TextColor="#FB4D3D" 
                     HorizontalOptions="CenterAndExpand" Clicked="CancelClicked"/>
