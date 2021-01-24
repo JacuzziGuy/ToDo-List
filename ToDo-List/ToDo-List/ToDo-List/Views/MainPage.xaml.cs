@@ -2,9 +2,11 @@
 using Xamarin.Forms;
 using ToDo_List.Models;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using SQLite;
 using ToDo_List.DB;
 using Rg.Plugins.Popup.Services;
+using System.Linq;
 
 namespace ToDo_List.Views
 {
@@ -27,6 +29,7 @@ namespace ToDo_List.Views
 
         private void InitList()
         {
+            Items = SortItems(Items);
             itemsList.ItemsSource = Items;
             itemsList.ItemTapped += ItemTapped;
             deleteButton.TranslateTo(0, 200, 0);
@@ -60,7 +63,7 @@ namespace ToDo_List.Views
                 if (selectedItem.Text.Length >= 20)
                 {
                     title.Text = "";
-                    for(int i =0; i < 20; i++)
+                    for (int i = 0; i < 20; i++)
                     {
                         title.Text += selectedItem.Text[i];
                     }
@@ -103,6 +106,14 @@ namespace ToDo_List.Views
             {
                 await addButton.TranslateTo(0, 200, 200);
             }
+        }
+        public static ObservableCollection<ItemModel> SortItems(ObservableCollection<ItemModel> orderList)
+        {
+            ObservableCollection<ItemModel> temp = new ObservableCollection<ItemModel>(orderList.OrderBy(x => x.Importance));
+            orderList.Clear();
+            foreach (ItemModel e in temp)
+                orderList.Add(e);
+            return orderList;
         }
     }
 }

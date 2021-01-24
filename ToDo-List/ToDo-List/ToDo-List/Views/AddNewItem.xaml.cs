@@ -7,6 +7,7 @@ using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using SQLite;
 using ToDo_List.DB;
+using System.Linq;
 
 namespace ToDo_List.Views
 {
@@ -38,6 +39,7 @@ namespace ToDo_List.Views
             var item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
             Items.Add(item);
             db.Insert(item);
+            Items = MainPage.SortItems(Items);
             PopupNavigation.Instance.PopAsync();
         }
 
