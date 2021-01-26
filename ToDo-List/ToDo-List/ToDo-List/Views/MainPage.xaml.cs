@@ -7,6 +7,7 @@ using SQLite;
 using ToDo_List.DB;
 using Rg.Plugins.Popup.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ToDo_List.Views
 {
@@ -32,8 +33,10 @@ namespace ToDo_List.Views
             Items = SortItems(Items);
             itemsList.ItemsSource = Items;
             itemsList.ItemTapped += ItemTapped;
-            deleteButton.TranslateTo(0, 200, 0);
+            deleteButton.ScaleTo(0, 0);
+            deleteButton.IsVisible = false;
             editButton.ScaleTo(0, 0);
+            editButton.IsVisible = false;
         }
 
         private void InitDB()
@@ -56,8 +59,13 @@ namespace ToDo_List.Views
             {
                 title.Text = "Do zrobienia:";
                 selectedItem = null;
-                await deleteButton.TranslateTo(0, 100, 200);
-                await editButton.ScaleTo(0,200);
+                await deleteButton.ScaleTo(0, 200);
+                await Task.Delay(200);
+                deleteButton.IsVisible = false;
+                await editButton.ScaleTo(0, 200);
+                await Task.Delay(200);
+                editButton.IsVisible = false;
+                addButton.IsVisible = true;
                 await addButton.ScaleTo(1, 200);
             }
             else
@@ -74,8 +82,13 @@ namespace ToDo_List.Views
                 }
                 else
                     title.Text = selectedItem.Text;
-                await deleteButton.TranslateTo(0, 0, 200);
+                deleteButton.IsVisible = true;
+                await deleteButton.ScaleTo(1, 200);
+                await Task.Delay(200);
                 await addButton.ScaleTo(0, 200);
+                await Task.Delay(200);
+                addButton.IsVisible = false;
+                editButton.IsVisible = true;
                 await editButton.ScaleTo(1, 200);
             }
         }
@@ -85,12 +98,19 @@ namespace ToDo_List.Views
             PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
         }
 
+        private void EditClicked(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItem));
+        }
+
         private async void DeleteClicked(object sender, EventArgs e)
         {
             Items.Remove(selectedItem);
             db.Delete(selectedItem);
             title.Text = "Do zrobienia:";
-            await deleteButton.TranslateTo(0, 100, 200);
+            await deleteButton.ScaleTo(0, 200);
+            await Task.Delay(200);
+            deleteButton.IsVisible = false;
         }
 
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -103,13 +123,16 @@ namespace ToDo_List.Views
 
         private async void ScrolledList(object sender, ScrolledEventArgs e)
         {
-            if (e.ScrollY <= 20)
+            if (e.ScrollY <= 1)
             {
-                await addButton.TranslateTo(0, 0, 200);
+                addButton.IsVisible = true;
+                await addButton.ScaleTo(1, 200);
             }
             else
             {
-                await addButton.TranslateTo(0, 100, 200);
+                await addButton.ScaleTo(0, 200);
+                await Task.Delay(200);
+                addButton.IsVisible = false;
             }
         }
         public static ObservableCollection<ItemModel> SortItems(ObservableCollection<ItemModel> orderList)

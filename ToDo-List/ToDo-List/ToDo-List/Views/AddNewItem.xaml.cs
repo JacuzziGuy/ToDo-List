@@ -15,6 +15,7 @@ namespace ToDo_List.Views
     public partial class AddNewItem : PopupPage
     {
         private ObservableCollection<ItemModel> Items;
+        private ItemModel Item;
         SQLiteConnection db = Constants.DataBasePath();
         int importance = 1;
         public AddNewItem(ObservableCollection<ItemModel> items)
@@ -23,7 +24,45 @@ namespace ToDo_List.Views
             InitializeComponent();
             InitXaml();
         }
-
+        public AddNewItem(ObservableCollection<ItemModel> items, ItemModel item)
+        {
+            Items = items;
+            Item = item;
+            InitializeComponent();
+            InitEdit();
+        }
+        private void InitEdit()
+        {
+            importance = Item.Importance;
+            input.Text = Item.Text;
+            btn1.BorderWidth = 0;
+            btn2.BorderWidth = 0;
+            btn3.BorderWidth = 0;
+            btn4.BorderWidth = 0;
+            btn5.BorderWidth = 0;
+            btn6.BorderWidth = 0;
+            switch (importance)
+            {
+                case 1:
+                    btn1.BorderWidth = 2;
+                    break;
+                case 2:
+                    btn2.BorderWidth = 2;
+                    break;
+                case 3:
+                    btn3.BorderWidth = 2;
+                    break;
+                case 4:
+                    btn4.BorderWidth = 2;
+                    break;
+                case 5:
+                    btn5.BorderWidth = 2;
+                    break;
+                case 6:
+                    btn6.BorderWidth = 2;
+                    break;
+            }
+        }
         private void InitXaml()
         {
             input.Text = "";
@@ -36,11 +75,22 @@ namespace ToDo_List.Views
 
         private void AddClicked(object sender, EventArgs e)
         {
-            var item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
-            Items.Add(item);
-            db.Insert(item);
-            Items = MainPage.SortItems(Items);
-            PopupNavigation.Instance.PopAsync();
+            if(Item == null)
+            {
+                var item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
+                Items.Add(item);
+                db.Insert(item);
+                Items = MainPage.SortItems(Items);
+                PopupNavigation.Instance.PopAsync();
+            }
+            else
+            {
+                int index = Items.IndexOf(Item);
+                Item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
+                Items[index] = Item;
+                db.Update(Item);
+                PopupNavigation.Instance.PopAsync();
+            }
         }
 
         protected override bool OnBackgroundClicked()
