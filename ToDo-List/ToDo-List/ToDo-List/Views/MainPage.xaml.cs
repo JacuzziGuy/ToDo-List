@@ -33,6 +33,7 @@ namespace ToDo_List.Views
             itemsList.ItemsSource = Items;
             itemsList.ItemTapped += ItemTapped;
             deleteButton.TranslateTo(0, 200, 0);
+            editButton.ScaleTo(0, 0);
         }
 
         private void InitDB()
@@ -55,7 +56,9 @@ namespace ToDo_List.Views
             {
                 title.Text = "Do zrobienia:";
                 selectedItem = null;
-                await deleteButton.TranslateTo(0, 200, 400);
+                await deleteButton.TranslateTo(0, 100, 200);
+                await editButton.ScaleTo(0,200);
+                await addButton.ScaleTo(1, 200);
             }
             else
             {
@@ -72,6 +75,8 @@ namespace ToDo_List.Views
                 else
                     title.Text = selectedItem.Text;
                 await deleteButton.TranslateTo(0, 0, 200);
+                await addButton.ScaleTo(0, 200);
+                await editButton.ScaleTo(1, 200);
             }
         }
 
@@ -85,7 +90,7 @@ namespace ToDo_List.Views
             Items.Remove(selectedItem);
             db.Delete(selectedItem);
             title.Text = "Do zrobienia:";
-            await deleteButton.TranslateTo(0, 200, 400);
+            await deleteButton.TranslateTo(0, 100, 200);
         }
 
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -100,11 +105,11 @@ namespace ToDo_List.Views
         {
             if (e.ScrollY <= 20)
             {
-                await addButton.TranslateTo(0, 0, 100);
+                await addButton.TranslateTo(0, 0, 200);
             }
             else
             {
-                await addButton.TranslateTo(0, 200, 200);
+                await addButton.TranslateTo(0, 100, 200);
             }
         }
         public static ObservableCollection<ItemModel> SortItems(ObservableCollection<ItemModel> orderList)

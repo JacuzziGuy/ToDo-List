@@ -1002,5 +1002,6 @@ D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\android\assets\Rg.Plugins.Popup.pdb
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\android\src\crc643dd37f507f3d9710\PopupPageRenderer.java
 D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\android\src\crc64fdbeeba101bd56dc\RgGestureDetectorListener.java
-D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\plus.png
-D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\cancel.png
+D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\add.png
+D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\delete.png
+D:\Programowanie\Github\Xamarin\ToDo-List\ToDo-List\ToDo-List\ToDo-List.Android\obj\Debug\90\res\drawable\edit.png

@@ -13,7 +13,7 @@
             <Label x:Name="title" Text="Do zrobienia:" FontSize="Large" FontAttributes="Bold"
                    TextColor="#FDFFFC" Padding="15,10,15,10"/>
         </StackLayout>
-        <StackLayout Grid.Row="1">
+        <ScrollView Scrolled="ScrolledList" Grid.Row="1">
             <ListView x:Name="itemsList" HasUnevenRows="True" Scrolled="ScrolledList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -31,7 +31,7 @@
                                 </Frame>
                                 <CheckBox Grid.Column="0" Grid.Row="0" IsChecked="{Binding Checked}" BindingContext="{Binding .}" CheckedChanged="CheckedChanged" 
                                           HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" 
-                                          Margin="10,17,10,0" HeightRequest="30" WidthRequest="30"/>
+                                          Margin="10,18,11,0" HeightRequest="30" WidthRequest="30"/>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Text}" 
                                        VerticalOptions="CenterAndExpand" Margin="0,10,10,10"
                                        FontSize="Medium"/>
@@ -40,12 +40,16 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
-        <ImageButton x:Name="addButton" Grid.Row="1" Clicked="AddClicked" Source="plus.png" HeightRequest="60" 
-                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" />
-        <ImageButton x:Name="deleteButton" Grid.Row="1" Clicked="DeleteClicked" Source="cancel.png" HeightRequest="60" 
-                     HorizontalOptions="Start" VerticalOptions="End" CornerRadius="60" Margin="20" 
+        </ScrollView>
+        <ImageButton x:Name="editButton" Grid.Row="1" Clicked="AddClicked" Source="edit.png" HeightRequest="60" 
+                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" 
+                     BackgroundColor="#FDFFFC" BorderColor="Black" BorderWidth="2" Padding="10"/>
+        <ImageButton x:Name="addButton" Grid.Row="1" Clicked="AddClicked" Source="add.png" HeightRequest="60" 
+                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" 
                      BackgroundColor="#FDFFFC" />
+        <ImageButton x:Name="deleteButton" Grid.Row="1" Clicked="DeleteClicked" Source="delete.png" HeightRequest="60" 
+                     HorizontalOptions="Start" VerticalOptions="End" CornerRadius="60" Margin="20" 
+                     BackgroundColor="#FDFFFC" BorderColor="Black" BorderWidth="2" Padding="10"/>
     </Grid>
 
 </ContentPage>
