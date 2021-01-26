@@ -16,6 +16,7 @@ namespace ToDo_List.Views
     {
         private ObservableCollection<ItemModel> Items;
         private ItemModel Item;
+        bool clicked = false;
         SQLiteConnection db = Constants.DataBasePath();
         int importance = 1;
         public AddNewItem(ObservableCollection<ItemModel> items)
@@ -34,6 +35,8 @@ namespace ToDo_List.Views
         private void InitEdit()
         {
             importance = Item.Importance;
+            title.Text = "Edytuj zadanie";
+            input.Placeholder = "Puste zadanie...";
             input.Text = Item.Text;
             btn1.BorderWidth = 0;
             btn2.BorderWidth = 0;
@@ -75,20 +78,24 @@ namespace ToDo_List.Views
 
         private void AddClicked(object sender, EventArgs e)
         {
-            if(Item == null)
+            if(Item == null && !clicked)
             {
                 var item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
                 Items.Add(item);
                 db.Insert(item);
                 Items = MainPage.SortItems(Items);
+                clicked = true;
                 PopupNavigation.Instance.PopAsync();
             }
-            else
+            else if(!clicked)
             {
-                int index = Items.IndexOf(Item);
+                Items.Remove(Item);
+                db.Delete(Item);
                 Item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
-                Items[index] = Item;
-                db.Update(Item);
+                Items.Add(Item);
+                db.Insert(Item);
+                Items = MainPage.SortItems(Items);
+                clicked = true;
                 PopupNavigation.Instance.PopAsync();
             }
         }

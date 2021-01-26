@@ -33,10 +33,8 @@ namespace ToDo_List.Views
             Items = SortItems(Items);
             itemsList.ItemsSource = Items;
             itemsList.ItemTapped += ItemTapped;
-            deleteButton.ScaleTo(0, 0);
-            deleteButton.IsVisible = false;
-            editButton.ScaleTo(0, 0);
-            editButton.IsVisible = false;
+            deleteButton.TranslateTo(-85, 0, 00);
+            editButton.TranslateTo(-85, 0, 0);
         }
 
         private void InitDB()
@@ -51,22 +49,15 @@ namespace ToDo_List.Views
             }
         }
 
-        private async void ItemTapped(object sender, ItemTappedEventArgs e)
+        private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ItemModel item = e.Item as ItemModel;
             itemsList.SelectedItem = null;
             if (selectedItem == item)
             {
                 title.Text = "Do zrobienia:";
+                DisableTapButtons();
                 selectedItem = null;
-                await deleteButton.ScaleTo(0, 200);
-                await Task.Delay(200);
-                deleteButton.IsVisible = false;
-                await editButton.ScaleTo(0, 200);
-                await Task.Delay(200);
-                editButton.IsVisible = false;
-                addButton.IsVisible = true;
-                await addButton.ScaleTo(1, 200);
             }
             else
             {
@@ -80,17 +71,27 @@ namespace ToDo_List.Views
                     }
                     title.Text += "...";
                 }
-                else
+                else if (selectedItem.Text != "")
+                {
                     title.Text = selectedItem.Text;
-                deleteButton.IsVisible = true;
-                await deleteButton.ScaleTo(1, 200);
-                await Task.Delay(200);
-                await addButton.ScaleTo(0, 200);
-                await Task.Delay(200);
-                addButton.IsVisible = false;
-                editButton.IsVisible = true;
-                await editButton.ScaleTo(1, 200);
+                }
+                else
+                {
+                    title.Text = "Puste zadanie";
+                }
+                EnableTapButtons();
             }
+        }
+
+        private async void DisableTapButtons()
+        {
+            await deleteButton.TranslateTo(-85, 0, 200);
+            await editButton.TranslateTo(-85, 0, 200);
+        }
+        private async void EnableTapButtons()
+        {
+            await deleteButton.TranslateTo(0, 0, 200);
+            await editButton.TranslateTo(0, 0, 200);
         }
 
         private void AddClicked(object sender, EventArgs e)
@@ -101,16 +102,18 @@ namespace ToDo_List.Views
         private void EditClicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItem));
+            title.Text = "Do zrobienia:";
+            DisableTapButtons();
+            selectedItem = null;
         }
 
-        private async void DeleteClicked(object sender, EventArgs e)
+        private void DeleteClicked(object sender, EventArgs e)
         {
             Items.Remove(selectedItem);
             db.Delete(selectedItem);
             title.Text = "Do zrobienia:";
-            await deleteButton.ScaleTo(0, 200);
-            await Task.Delay(200);
-            deleteButton.IsVisible = false;
+            DisableTapButtons();
+            selectedItem = null;
         }
 
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -126,15 +129,14 @@ namespace ToDo_List.Views
             if (e.ScrollY <= 1)
             {
                 addButton.IsVisible = true;
-                await addButton.ScaleTo(1, 200);
+                await addButton.TranslateTo(0, 0, 200);
             }
             else
             {
-                await addButton.ScaleTo(0, 200);
-                await Task.Delay(200);
-                addButton.IsVisible = false;
+                await addButton.TranslateTo(0, 85, 200);
             }
         }
+
         public static ObservableCollection<ItemModel> SortItems(ObservableCollection<ItemModel> orderList)
         {
             ObservableCollection<ItemModel> temp = new ObservableCollection<ItemModel>(orderList.OrderBy(x => x.Importance));

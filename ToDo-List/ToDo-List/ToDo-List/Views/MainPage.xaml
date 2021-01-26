@@ -42,7 +42,7 @@
             </ListView>
         </ScrollView>
         <ImageButton x:Name="editButton" Grid.Row="1" Clicked="EditClicked" Source="edit.png" HeightRequest="60" 
-                     HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" 
+                     HorizontalOptions="Start" VerticalOptions="End" CornerRadius="60" Margin="20,20,20,100" 
                      BackgroundColor="#FDFFFC" BorderColor="Black" BorderWidth="2" Padding="10"/>
         <ImageButton x:Name="addButton" Grid.Row="1" Clicked="AddClicked" Source="add.png" HeightRequest="60" 
                      HorizontalOptions="End" VerticalOptions="End" CornerRadius="60" Margin="20" 
