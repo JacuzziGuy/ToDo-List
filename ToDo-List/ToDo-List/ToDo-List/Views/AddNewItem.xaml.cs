@@ -89,11 +89,11 @@ namespace ToDo_List.Views
             }
             else if(!clicked)
             {
-                Items.Remove(Item);
-                db.Delete(Item);
-                Item = new ItemModel { Text = input.Text, Checked = false, Importance = importance };
-                Items.Add(Item);
-                db.Insert(Item);
+                int index = Items.IndexOf(Item);
+                Item.Text = input.Text;
+                Item.Importance = importance;
+                Items[index] = Item;
+                db.Update(Item);
                 Items = MainPage.SortItems(Items);
                 clicked = true;
                 PopupNavigation.Instance.PopAsync();
