@@ -17,7 +17,7 @@
             <ListView x:Name="itemsList" HasUnevenRows="True" Scrolled="ScrolledList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <ViewCell Tapped="ViewCell_Tapped">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>

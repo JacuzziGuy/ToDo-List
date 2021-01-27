@@ -18,6 +18,7 @@ namespace ToDo_List.Views
         SQLiteConnection db = Constants.DataBasePath();
         public ObservableCollection<ItemModel> Items = new ObservableCollection<ItemModel>();
         ItemModel selectedItem = new ItemModel();
+        ViewCell lastCell;
 
         #endregion
 
@@ -88,6 +89,7 @@ namespace ToDo_List.Views
             await deleteButton.TranslateTo(-85, 0, 200);
             await editButton.TranslateTo(-85, 0, 200);
         }
+
         private async void EnableTapButtons()
         {
             await deleteButton.TranslateTo(0, 0, 200);
@@ -144,6 +146,27 @@ namespace ToDo_List.Views
             foreach (ItemModel e in temp)
                 orderList.Add(e);
             return orderList;
+        }
+
+        private void ViewCell_Tapped(object sender, EventArgs e)
+        {
+            var viewCell = sender as ViewCell;
+            if (lastCell == viewCell)
+            {
+                viewCell.View.BackgroundColor = Color.Transparent;
+                lastCell = null;
+            }
+            else if (lastCell != null)
+            {
+                lastCell.View.BackgroundColor = Color.Transparent;
+                viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
+                lastCell = viewCell;
+            }
+            else
+            {
+                viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
+                lastCell = viewCell;
+            }
         }
     }
 }
