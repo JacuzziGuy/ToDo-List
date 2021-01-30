@@ -99,6 +99,10 @@ namespace ToDo_List.Views
         private void AddClicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
+            title.Text = "Do zrobienia";
+            DisableTapButtons();
+            lastCell = null;
+            selectedItem = null;
         }
 
         private void EditClicked(object sender, EventArgs e)
@@ -167,6 +171,11 @@ namespace ToDo_List.Views
                 viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
                 lastCell = viewCell;
             }
+        }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,15 +23,12 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="65"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Frame CornerRadius="25" BackgroundColor="{Binding ImportanceColor}" HeightRequest="5" WidthRequest="5"
-                                       Grid.Column="0" Grid.Row="0" VerticalOptions="StartAndExpand" Margin="10">
-                                </Frame>
                                 <CheckBox Grid.Column="0" Grid.Row="0" IsChecked="{Binding Checked}" BindingContext="{Binding .}" CheckedChanged="CheckedChanged" 
-                                          HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" 
-                                          Margin="10,18,11,0" HeightRequest="30" WidthRequest="30"/>
+                                          HorizontalOptions="Center" VerticalOptions="Start" 
+                                          Margin="10" BackgroundColor="{Binding ImportanceColor}"/>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Text}" 
                                        VerticalOptions="CenterAndExpand" Margin="0,10,10,10"
                                        FontSize="Medium"/>
