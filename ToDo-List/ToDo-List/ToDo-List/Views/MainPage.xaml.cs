@@ -65,6 +65,7 @@ namespace ToDo_List.Views
                 {
                     title.Text = "Do zrobienia:";
                     DisableTapButtons();
+                    EnableAddButton();
                 }
                 else if (selectedItems.Count == 1)
                 {
@@ -79,6 +80,7 @@ namespace ToDo_List.Views
             else
             {
                 selectedItems.Add(item);
+                DisableAddButton();
                 if (selectedItems.Count == 1)
                 {
                     SetTitle();
@@ -90,6 +92,18 @@ namespace ToDo_List.Views
                     title.Text = selectedItems.Count.ToString();
                 }
             }
+        }
+
+        //Hiding add button
+        private async void DisableAddButton()
+        {
+            await addButton.TranslateTo(0, 85, 200);
+        }
+
+        //Showing add button
+        private async void EnableAddButton()
+        {
+            await addButton.TranslateTo(0, 0, 200);
         }
 
         //Hiding the edit and delete button
@@ -142,7 +156,8 @@ namespace ToDo_List.Views
 
         private void AddClicked(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
+            if (selectedItems.Count == 0)
+                PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
         }
 
         private void EditClicked(object sender, EventArgs e)
@@ -179,9 +194,8 @@ namespace ToDo_List.Views
         //Hiding the button after scrolling the list
         private async void ScrolledList(object sender, ScrolledEventArgs e)
         {
-            if (e.ScrollY <= 1)
+            if (e.ScrollY <= 1 && selectedItems.Count == 0)
             {
-                addButton.IsVisible = true;
                 await addButton.TranslateTo(0, 0, 200);
             }
             else
