@@ -172,10 +172,5 @@ namespace ToDo_List.Views
                 lastCell = viewCell;
             }
         }
-
-        private void ImageButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -18,20 +18,25 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCell_Tapped">
-                            <Grid>
+                            <Grid Padding="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="65"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" Grid.Row="0" IsChecked="{Binding Checked}" BindingContext="{Binding .}" CheckedChanged="CheckedChanged" 
-                                          HorizontalOptions="Center" VerticalOptions="Start" 
-                                          Margin="10" BackgroundColor="{Binding ImportanceColor}"/>
+                                <Grid WidthRequest="60" HeightRequest="60" Grid.Column="0" Grid.Row="0" Margin="-5" VerticalOptions="Start">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" BackgroundColor="{Binding ImportanceColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                                           CornerRadius="70"/>
+                                    <CheckBox Grid.Row="0" IsChecked="{Binding Checked}" BindingContext="{Binding .}" CheckedChanged="CheckedChanged" 
+                                          HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                </Grid>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Text}" 
-                                       VerticalOptions="CenterAndExpand" Margin="0,10,10,10"
-                                       FontSize="Medium"/>
+                                       VerticalOptions="CenterAndExpand" FontSize="Medium"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
