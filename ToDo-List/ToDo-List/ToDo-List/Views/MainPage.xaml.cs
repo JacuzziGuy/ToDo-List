@@ -18,11 +18,8 @@ namespace ToDo_List.Views
         SQLiteConnection db = Constants.DataBasePath();
         public ObservableCollection<ItemModel> Items = new ObservableCollection<ItemModel>();
 
-        //Currently selected item
-        ItemModel selectedItem = new ItemModel();
-        
-        //Last tapped cell
-        ViewCell lastCell;
+
+        private List<ItemModel> selectedItems = new List<ItemModel>();
 
         #endregion
 
@@ -61,33 +58,37 @@ namespace ToDo_List.Views
         {
             ItemModel item = e.Item as ItemModel;
             itemsList.SelectedItem = null;
-            if (selectedItem == item)
+            if (selectedItems.Any(x => x == item))
             {
-                title.Text = "Do zrobienia:";
-                DisableTapButtons();
-                selectedItem = null;
-            }
-            else
-            {
-                selectedItem = item;
-                if (selectedItem.Text.Length >= 20)
+                selectedItems.Remove(item);
+                if (selectedItems.Count == 0)
                 {
-                    title.Text = "";
-                    for (int i = 0; i < 20; i++)
-                    {
-                        title.Text += selectedItem.Text[i];
-                    }
-                    title.Text += "...";
+                    title.Text = "Do zrobienia:";
+                    DisableTapButtons();
                 }
-                else if (selectedItem.Text != "")
+                else if (selectedItems.Count == 1)
                 {
-                    title.Text = selectedItem.Text;
+                    SetTitle();
+                    EnableEditButton();
                 }
                 else
                 {
-                    title.Text = "Puste zadanie";
+                    title.Text = selectedItems.Count.ToString();
                 }
-                EnableTapButtons();
+            }
+            else
+            {
+                selectedItems.Add(item);
+                if (selectedItems.Count == 1)
+                {
+                    SetTitle();
+                    EnableTapButtons();
+                }
+                else
+                {
+                    DisableEditButton();
+                    title.Text = selectedItems.Count.ToString();
+                }
             }
         }
 
@@ -105,30 +106,65 @@ namespace ToDo_List.Views
             await editButton.TranslateTo(0, 0, 200);
         }
 
+        //Showing edit button
+        private async void EnableEditButton()
+        {
+            await editButton.TranslateTo(0, 0, 200);
+        }
+
+        //Hiding edit button
+        private async void DisableEditButton()
+        {
+            await editButton.TranslateTo(-85, 0, 200);
+        }
+
+        //Setting the title of the page as a name of the selected item
+        private void SetTitle()
+        {
+            if (selectedItems[0].Text.Length >= 20)
+            {
+                title.Text = "";
+                for (int i = 0; i < 20; i++)
+                {
+                    title.Text += selectedItems[0].Text[i];
+                }
+                title.Text += "...";
+            }
+            else if (selectedItems[0].Text != "")
+            {
+                title.Text = selectedItems[0].Text;
+            }
+            else
+            {
+                title.Text = "Puste zadanie";
+            }
+        }
+
         private void AddClicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
-            title.Text = "Do zrobienia";
-            DisableTapButtons();
-            lastCell = null;
-            selectedItem = null;
         }
 
         private void EditClicked(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItem));
-            title.Text = "Do zrobienia:";
-            DisableTapButtons();
-            selectedItem = null;
+            if (selectedItems.Count == 1)
+                PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItems[0]));
         }
 
         private void DeleteClicked(object sender, EventArgs e)
         {
-            Items.Remove(selectedItem);
-            db.Delete(selectedItem);
-            title.Text = "Do zrobienia:";
-            DisableTapButtons();
-            selectedItem = null;
+            try
+            {
+                foreach (var item in selectedItems)
+                {
+                    Items.Remove(item);
+                    db.Delete(item);
+                }
+                title.Text = "Do zrobienia:";
+                DisableTapButtons();
+                selectedItems.Clear();
+            }
+            catch { }
         }
 
         //Saving checked
@@ -168,21 +204,13 @@ namespace ToDo_List.Views
         private void ViewCell_Tapped(object sender, EventArgs e)
         {
             var viewCell = sender as ViewCell;
-            if (lastCell == viewCell)
+            if (viewCell.View.BackgroundColor == Color.FromHex("#fffcde"))
             {
                 viewCell.View.BackgroundColor = Color.Transparent;
-                lastCell = null;
-            }
-            else if (lastCell != null)
-            {
-                lastCell.View.BackgroundColor = Color.Transparent;
-                viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
-                lastCell = viewCell;
             }
             else
             {
                 viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
-                lastCell = viewCell;
             }
         }
     }
