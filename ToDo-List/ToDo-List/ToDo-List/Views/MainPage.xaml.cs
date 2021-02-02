@@ -17,7 +17,11 @@ namespace ToDo_List.Views
 
         SQLiteConnection db = Constants.DataBasePath();
         public ObservableCollection<ItemModel> Items = new ObservableCollection<ItemModel>();
+
+        //Currently selected item
         ItemModel selectedItem = new ItemModel();
+        
+        //Last tapped cell
         ViewCell lastCell;
 
         #endregion
@@ -29,6 +33,7 @@ namespace ToDo_List.Views
             InitList();
         }
 
+        //Initializing items list
         private void InitList()
         {
             Items = SortItems(Items);
@@ -38,6 +43,7 @@ namespace ToDo_List.Views
             editButton.TranslateTo(-85, 0, 0);
         }
 
+        //Initializing DataBase
         private void InitDB()
         {
             try
@@ -50,6 +56,7 @@ namespace ToDo_List.Views
             }
         }
 
+        //What happens after we tap an element
         private void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ItemModel item = e.Item as ItemModel;
@@ -84,12 +91,14 @@ namespace ToDo_List.Views
             }
         }
 
+        //Hiding the edit and delete button
         private async void DisableTapButtons()
         {
             await deleteButton.TranslateTo(-85, 0, 200);
             await editButton.TranslateTo(-85, 0, 200);
         }
 
+        //Showing the edit and delete button on screen
         private async void EnableTapButtons()
         {
             await deleteButton.TranslateTo(0, 0, 200);
@@ -122,6 +131,7 @@ namespace ToDo_List.Views
             selectedItem = null;
         }
 
+        //Saving checked
         private void CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
@@ -130,6 +140,7 @@ namespace ToDo_List.Views
             db.Update(item);
         }
 
+        //Hiding the button after scrolling the list
         private async void ScrolledList(object sender, ScrolledEventArgs e)
         {
             if (e.ScrollY <= 1)
@@ -143,6 +154,7 @@ namespace ToDo_List.Views
             }
         }
 
+        //Sorting items by priority
         public static ObservableCollection<ItemModel> SortItems(ObservableCollection<ItemModel> orderList)
         {
             ObservableCollection<ItemModel> temp = new ObservableCollection<ItemModel>(orderList.OrderBy(x => x.Importance));
@@ -152,6 +164,7 @@ namespace ToDo_List.Views
             return orderList;
         }
 
+        //Changing the background color of a tapped element
         private void ViewCell_Tapped(object sender, EventArgs e)
         {
             var viewCell = sender as ViewCell;

@@ -21,7 +21,7 @@
             <Button Text="Anuluj" BackgroundColor="Transparent" TextColor="#FB4D3D" 
                     HorizontalOptions="CenterAndExpand" Clicked="CancelClicked"/>
             <Button Text="Zapisz" BackgroundColor="Transparent" TextColor="#FB4D3D" 
-                    HorizontalOptions="CenterAndExpand" Clicked="AddClicked"/>
+                    HorizontalOptions="CenterAndExpand" Clicked="SaveClicked"/>
         </FlexLayout>
     </StackLayout>
 </pages:PopupPage>

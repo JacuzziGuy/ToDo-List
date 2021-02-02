@@ -14,17 +14,31 @@ namespace ToDo_List.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddNewItem : PopupPage
     {
-        private ObservableCollection<ItemModel> Items;
-        private ItemModel Item;
-        bool clicked = false;
+        #region Variables
+
         SQLiteConnection db = Constants.DataBasePath();
+        private ObservableCollection<ItemModel> Items;
+
+        //Selected item
+        private ItemModel Item;
+
+        //After we clicked save, it doesn't allow to add multiple items from a single task
+        bool clicked = false;
+
+        //Importance of a selected / new task
         int importance = 1;
+
+        #endregion
+
+        //Constructor for adding new items
         public AddNewItem(ObservableCollection<ItemModel> items)
         {
             Items = items;
             InitializeComponent();
             InitXaml();
         }
+
+        //Constructor for editing selected item
         public AddNewItem(ObservableCollection<ItemModel> items, ItemModel item)
         {
             Items = items;
@@ -32,6 +46,8 @@ namespace ToDo_List.Views
             InitializeComponent();
             InitEdit();
         }
+       
+        //Initializing xaml variables if we edit a selected taks
         private void InitEdit()
         {
             importance = Item.Importance;
@@ -66,6 +82,8 @@ namespace ToDo_List.Views
                     break;
             }
         }
+
+        //Initializing xaml variables if we add a new task
         private void InitXaml()
         {
             input.Text = "";
@@ -76,7 +94,7 @@ namespace ToDo_List.Views
             PopupNavigation.Instance.PopAsync();
         }
 
-        private void AddClicked(object sender, EventArgs e)
+        private void SaveClicked(object sender, EventArgs e)
         {
             if(Item == null && !clicked)
             {
@@ -100,11 +118,13 @@ namespace ToDo_List.Views
             }
         }
 
+        //Making the popup not close after tapping on the background
         protected override bool OnBackgroundClicked()
         {
             return false;
         }
 
+        //Setting priority of the task
         private void ImportanceClicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
