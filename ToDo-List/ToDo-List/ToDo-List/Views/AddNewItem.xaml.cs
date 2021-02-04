@@ -92,6 +92,7 @@ namespace ToDo_List.Views
         private void CancelClicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PopAsync();
+            MainPage.addClicked = false;
         }
 
         private void SaveClicked(object sender, EventArgs e)
@@ -103,6 +104,7 @@ namespace ToDo_List.Views
                 db.Insert(item);
                 Items = MainPage.SortItems(Items);
                 clicked = true;
+                MainPage.addClicked = false;
                 PopupNavigation.Instance.PopAsync();
             }
             else if(!clicked)
@@ -114,6 +116,7 @@ namespace ToDo_List.Views
                 db.Update(Item);
                 Items = MainPage.SortItems(Items);
                 clicked = true;
+                MainPage.addClicked = false;
                 PopupNavigation.Instance.PopAsync();
             }
         }
