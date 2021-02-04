@@ -21,6 +21,8 @@ namespace ToDo_List.Views
 
         private List<ItemModel> selectedItems = new List<ItemModel>();
 
+        private List<ViewCell> cells = new List<ViewCell>();
+
         #endregion
 
         public MainPage()
@@ -163,7 +165,14 @@ namespace ToDo_List.Views
         private void EditClicked(object sender, EventArgs e)
         {
             if (selectedItems.Count == 1)
+            {
                 PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItems[0]));
+                title.Text = "Do Zrobienia:";
+                selectedItems.Clear();
+                cells[0].View.BackgroundColor = Color.Transparent;
+                cells.Clear();
+                DisableTapButtons();
+            }
         }
 
         private void DeleteClicked(object sender, EventArgs e)
@@ -220,10 +229,12 @@ namespace ToDo_List.Views
             var viewCell = sender as ViewCell;
             if (viewCell.View.BackgroundColor == Color.FromHex("#fffcde"))
             {
+                cells.Remove(viewCell);
                 viewCell.View.BackgroundColor = Color.Transparent;
             }
             else
             {
+                cells.Add(viewCell);
                 viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
             }
         }
