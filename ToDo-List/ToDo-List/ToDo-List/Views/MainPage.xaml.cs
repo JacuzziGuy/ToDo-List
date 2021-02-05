@@ -101,29 +101,29 @@ namespace ToDo_List.Views
         }
 
         //Hiding add button
-        private async void DisableAddButton()
+        private void DisableAddButton()
         {
-            await addButton.TranslateTo(0, 85, 200);
+            addButton.TranslateTo(0, 85, 200);
         }
 
         //Showing add button
-        private async void EnableAddButton()
+        private void EnableAddButton()
         {
-            await addButton.TranslateTo(0, 0, 200);
+            addButton.TranslateTo(0, 0, 200);
         }
 
         //Hiding the edit and delete button
-        private async void DisableTapButtons()
+        private void DisableTapButtons()
         {
-            await deleteButton.TranslateTo(-85, 0, 200);
-            await editButton.TranslateTo(-85, 0, 200);
+            deleteButton.TranslateTo(-85, 0, 200);
+            editButton.TranslateTo(-85, 0, 200);
         }
 
         //Showing the edit and delete button on screen
-        private async void EnableTapButtons()
+        private void EnableTapButtons()
         {
-            await deleteButton.TranslateTo(0, 0, 200);
-            await editButton.TranslateTo(0, 0, 200);
+            deleteButton.TranslateTo(0, 0, 200);
+            editButton.TranslateTo(0, 0, 200);
         }
 
         //Showing edit button
