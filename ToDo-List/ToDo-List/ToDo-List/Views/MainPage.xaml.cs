@@ -21,6 +21,10 @@ namespace ToDo_List.Views
 
         private List<ItemModel> selectedItems = new List<ItemModel>();
 
+        private List<ViewCell> cells = new List<ViewCell>();
+
+        public static bool addClicked = false;
+
         #endregion
 
         public MainPage()
@@ -58,6 +62,8 @@ namespace ToDo_List.Views
         {
             ItemModel item = e.Item as ItemModel;
             itemsList.SelectedItem = null;
+            if (addClicked)
+                return;
             if (selectedItems.Any(x => x == item))
             {
                 selectedItems.Remove(item);
@@ -157,13 +163,23 @@ namespace ToDo_List.Views
         private void AddClicked(object sender, EventArgs e)
         {
             if (selectedItems.Count == 0)
+            {
+                addClicked = true;
                 PopupNavigation.Instance.PushAsync(new AddNewItem(Items));
+            }
         }
 
         private void EditClicked(object sender, EventArgs e)
         {
             if (selectedItems.Count == 1)
+            {
                 PopupNavigation.Instance.PushAsync(new AddNewItem(Items, selectedItems[0]));
+                title.Text = "Do Zrobienia:";
+                selectedItems.Clear();
+                cells[0].View.BackgroundColor = Color.Transparent;
+                cells.Clear();
+                DisableTapButtons();
+            }
         }
 
         private void DeleteClicked(object sender, EventArgs e)
@@ -217,13 +233,17 @@ namespace ToDo_List.Views
         //Changing the background color of a tapped element
         private void ViewCell_Tapped(object sender, EventArgs e)
         {
+            if (addClicked)
+                return;
             var viewCell = sender as ViewCell;
             if (viewCell.View.BackgroundColor == Color.FromHex("#fffcde"))
             {
+                cells.Remove(viewCell);
                 viewCell.View.BackgroundColor = Color.Transparent;
             }
             else
             {
+                cells.Add(viewCell);
                 viewCell.View.BackgroundColor = Color.FromHex("#fffcde");
             }
         }
